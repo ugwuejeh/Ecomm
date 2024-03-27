@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="{% static '/css/main2cc5.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    <title>Verify</title>
+</head>
+{% block content %}
+<body>
+    {% include "messages/message.html" %}
+    <style>
+        form {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .codebox {
+            width: 50vw;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        input {
+            border: 2px solid black;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    </style>
+   
+    <form method="post">
+        
+        {% csrf_token %}
+        <div class="white">
+            {% comment %} {% include "messages/message.html" %} {% endcomment %}
+            <h2 class="verifier"><i class="fa-regular fa-envelope icon"></i>
+                <br>VERIFY YOUR EMAIL ADDRESS</h2><br><br>
+            <p class="sent">A verification code has been sent to your email address.
+                {% comment %} <span class="">your email box</span></p> {% endcomment %}
+
+            <p>Please check your inbox and enter the verification code below to verify your address.</p> 
+                    <span>The code will expire in 5 mins</span> <br><br>
+
+
+            <div class="codebox">
+                <input type="text" name="otp" id="otp" required>
+            </div> <br>
+
+            <button type="submit" class="verification">Verify now</button>
+                <!-- <button class="verification">Verify</button> -->
+
+
+            <!-- <p class="action">Resend Code<span class="change">Change email</span></p> -->
+
+            <!-- <a class="footer" href="/Emex desk/verification.html">Back to previous page</a> -->
+        </div>
+    </form>
+        
+</body>
+{% endblock content %}
+</html>

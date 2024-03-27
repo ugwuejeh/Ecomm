@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="{% static '/css/main2cc5.css' %}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+        <title>Verify</title>
+    </head>
+</head>
+{% block content %}
+<body>
+    {% include "messages/message.html" %}
+    <style>
+        form {
+            text-align: center;
+            width: 50vw;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        input {
+            width: 50vw;
+            margin: auto;
+            margin-bottom: 10px;
+            border: 2px solid black;
+        }
+
+        label {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+    </style>
+    
+    <form method="post">
+        {% csrf_token %}
+        <h2 class="verifier"><i class="fa-regular fa-envelope icon"></i>
+            <br>Re-verify OTP</h2><br><br>
+        <p>OTP has expired & email not verified. To continue your registration, enter your email address below and click the button to resend OTP.</p><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email same as the one used at signup" required><br><br>
+        <button type="submit">Resend OTP</button>
+    </form>
+</body>
+{% endblock content %}
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="{% static '/css/main2cc5.css' %}"> 
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+{% block content %}
+<body>
+
+    <style>
+        form {
+            text-align: center;
+        }
+
+        .inputbox {
+            width: 50vw;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        input {
+            border: 2px solid black;
+        }
+
+        a {
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+
+    <form method="post">
+        {% include "messages/message.html" %}
+        {% csrf_token %}
+
+        <h2 class="login">Welcome, <span class="create">signup to begin</span></h2><br>
+
+        <div class="inputbox">
+            
+            <legend>EMAIL</legend>
+            <!-- <i class="fa-solid fa-user icon"></i> -->
+            <input type="email" name="email" placeholder="email">
+        
+        </div>
+
+        <div class="inputbox">
+            
+            <legend>USERNAME</legend>
+            <!-- <i class="fa-solid fa-lock icon"></i> -->
+            <input type="text" name="username" placeholder="username">
+            
+        </div>
+
+        <div class="inputbox">
+            
+            <legend>FIRST NAME</legend>
+            <!-- <i class="fa-solid fa-user icon"></i> -->
+            <input type="text" name="first_name" placeholder="first name">
+            
+        </div>
+
+        <div class="inputbox">
+           
+            <legend>LAST NAME</legend>
+            <!-- <i class="fa-solid fa-user icon"></i> -->
+            <input type="text" name="last_name" placeholder="last name">
+            
+        </div> <br>
+
+        <button id="btn" type="submit" class="btn">Sign Up</button>
+        {% comment %} <div class="registerlink"> {% endcomment %}
+        <br><br>
+        <a href='{% url "login" %}'>Already have an account? Login here</a>
+    </form>
+
+</body>
+{% endblock content %}
+</html>

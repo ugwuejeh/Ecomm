@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+    <link rel="stylesheet" href="{% static '/css/main2cc5.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous"/>
+</head>
+{% block content %}
+<body>
+    {% include "messages/message.html" %}
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            width: 50vw;
+            margin: auto;
+        }
+
+
+        input {
+            border: 2px solid black;
+            width: 50vw;
+            height: 40px;
+        }
+
+        textarea {
+            width: 50vw;
+            border: 2px solid black;
+        }
+    </style>
+
+    <h2>Vendor Application Form</h2><br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Apply</button>
+    </form>
+
+    
+</body>
+{% endblock content %}
+</html>
